@@ -13,7 +13,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/09/21/贪心算法——从入门到放弃/index.html">
 <meta property="og:site_name" content="Jiecao">
 <meta property="og:description" content="前言有人说贪心算法是最简单的算法，原因很简单：你我其实都很贪，根本不用学就知道怎么贪。有人说贪心算法是最复杂的算法，原因也很简单：这世上会贪的人太多了，哪轮到你我的份？">
-<meta property="og:updated_time" content="2016-09-21T11:56:33.970Z">
+<meta property="og:updated_time" content="2016-09-21T12:21:54.842Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="贪心算法——从入门到放弃">
 <meta name="twitter:description" content="前言有人说贪心算法是最简单的算法，原因很简单：你我其实都很贪，根本不用学就知道怎么贪。有人说贪心算法是最复杂的算法，原因也很简单：这世上会贪的人太多了，哪轮到你我的份？">
@@ -185,7 +185,7 @@
 
           
           <nav class="post-toc-wrap" id="post-toc">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#0-贪心入门"><span class="post-toc-text">0.贪心入门</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-贪心经典例题之背包问题"><span class="post-toc-text">1.贪心经典例题之背包问题</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#0-贪心入门"><span class="post-toc-text">0.贪心入门</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-贪心经典例题之均分纸牌"><span class="post-toc-text">1.贪心经典例题之均分纸牌</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-施工中。。。"><span class="post-toc-text">2.施工中。。。</span></a></li></ol>
           </nav>
           
         </aside>
@@ -195,8 +195,20 @@
             <div class="post-content" id="post-content" itemprop="postContent"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有人说贪心算法是最简单的算法，原因很简单：你我其实都很贪，根本不用学就知道怎么贪。<br>有人说贪心算法是最复杂的算法，原因也很简单：这世上会贪的人太多了，哪轮到你我的份？</p>
 <a id="more"></a>
 <h2 id="0-贪心入门"><a href="#0-贪心入门" class="headerlink" title="0.贪心入门"></a>0.贪心入门</h2><p>顾名思义，贪心算法总是作出在当前看来最好的选择。也就是说贪心算法并不从整体最优考虑，它所作出的选择只是在某种意义上的局部最优选择。当然，希望贪心算法得到的最终结果也是整体最优的。虽然贪心算法不能对所有问题都得到整体最优解，但对许多问题它能产生整体最优解。如单源最短路经问题，最小生成树问题等。在一些情况下，即使贪心算法不能得到整体最优解，其最终结果却是最优解的很好近似。</p>
-<h2 id="1-贪心经典例题之背包问题"><a href="#1-贪心经典例题之背包问题" class="headerlink" title="1.贪心经典例题之背包问题"></a>1.贪心经典例题之背包问题</h2><p><em>注：完整的<strong>背包问题</strong>请参考<a href="https://naivekun.github.io/2016/08/20/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98-1/" target="_blank" rel="external">Naivekun—-背包问题(1)</a></em></p>
-</div>
+<h2 id="1-贪心经典例题之均分纸牌"><a href="#1-贪心经典例题之均分纸牌" class="headerlink" title="1.贪心经典例题之均分纸牌"></a>1.贪心经典例题之均分纸牌</h2><p>【题目链接】<br><a href="http://www.luogu.org/problem/show?pid=1031" target="_blank" rel="external">洛谷【1031】</a><br>【题目描述】<br>有 N 堆纸牌，编号分别为 1，2，…, N。每堆上有若干张，但纸牌总数必为 N 的倍数。可以在任一堆上取若于张纸牌，然后移动。<br>移牌规则为：在编号为 1 堆上取的纸牌，只能移到编号为 2 的堆上；在编号为 N 的堆上取的纸牌，只能移到编号为 N-1 的堆上；其他堆上取的纸牌，可以移到相邻左边或右边的堆上。<br>现在要求找出一种移动方法，用最少的移动次数使每堆上纸牌数都一样多。<br>例如 N=4，4 堆纸牌数分别为：<br>① 9 ② 8 ③ 17 ④ 6<br>移动3次可达到目的：<br>从 ③ 取 4 张牌放到 ④ （9 8 13 10） -&gt; 从 ③ 取 3 张牌放到 ②（9 11 10 10）-&gt; 从 ② 取 1 张牌放到①（10 10 10 10）。<br>【输入格式】<br>N（N 堆纸牌，1 &lt;= N &lt;= 100）<br>A1 A2 … An （N 堆纸牌，每堆纸牌初始数，l&lt;= Ai &lt;=10000）<br>【输出格式】<br>所有堆均达到相等时的最少移动次数。<br>【输入样例】</p>
+<blockquote>
+<p>4<br>9 8 17 6</p>
+</blockquote>
+<p>【输出样例】</p>
+<blockquote>
+<p>3</p>
+</blockquote>
+<p>【题解】</p>
+<blockquote>
+<p>康明宋。。。</p>
+</blockquote>
+<p>【程序】<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> n,aid,a[<span class="number">105</span>],tot=<span class="number">0</span>,sum=<span class="number">0</span>,you;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;++i)</div><div class="line">	&#123;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</div><div class="line">		tot+=a[i];</div><div class="line">	&#125;</div><div class="line">	aid=tot/n;</div><div class="line">	<span class="comment">//////</span></div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n<span class="number">-1</span>;++i)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">if</span>(a[i]-aid&lt;<span class="number">0</span>)</div><div class="line">		&#123;</div><div class="line">			a[i+<span class="number">1</span>]+=a[i]-aid;</div><div class="line">			sum++;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(a[i]-aid&gt;<span class="number">0</span>)</div><div class="line">		&#123;</div><div class="line">			a[i+<span class="number">1</span>]+=a[i]-aid;</div><div class="line">			sum++;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>,sum);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="2-施工中。。。"><a href="#2-施工中。。。" class="headerlink" title="2.施工中。。。"></a>2.施工中。。。</h2></div>
 
             
 <nav class="post-nav flex-row">
@@ -205,7 +217,7 @@
   </div>
   <div class="flex-col waves-block waves-effect next">
     
-      <a href="/2016/09/20/打表大神的对抗/" title="打表大神的对抗" id="post-next" class="post-nav-link">
+      <a href="/2016/09/20/分治算法——从入门到放弃/" title="分治算法——从入门到放弃" id="post-next" class="post-nav-link">
         <span class="article-nav-title">下一篇</span>
         <i class="icon icon-chevron-right"></i>
       </a>

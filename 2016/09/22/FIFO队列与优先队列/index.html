@@ -13,7 +13,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/09/22/FIFO队列与优先队列/index.html">
 <meta property="og:site_name" content="Jiecao">
 <meta property="og:description" content="前言队列是个好东西，可以手写，也可以用C++自带的queue头文件来写。">
-<meta property="og:updated_time" content="2016-09-22T13:50:21.551Z">
+<meta property="og:updated_time" content="2016-09-22T13:52:13.484Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FIFO队列与优先队列">
 <meta name="twitter:description" content="前言队列是个好东西，可以手写，也可以用C++自带的queue头文件来写。">
@@ -199,7 +199,10 @@
 <p>queue &lt;类型&gt; 变量名</p>
 </blockquote>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">queue</span> &lt;<span class="keyword">int</span>&gt; que    <span class="comment">//定义一个int类型的名为que的FIFO队列</span></div><div class="line"><span class="built_in">queue</span> &lt;<span class="keyword">char</span>&gt; a     <span class="comment">//定义一个char类型的名为a的FIFO队列</span></div><div class="line"><span class="built_in">queue</span> &lt;data&gt; c     <span class="comment">//定义一个data（自定义数据类型）类型的名为c的FIFO队列</span></div></pre></td></tr></table></figure>
-<h3 id="优先队列"><a href="#优先队列" class="headerlink" title="优先队列"></a>优先队列</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">priority_queue &lt;<span class="keyword">int</span>&gt; heap;      <span class="comment">//定义一个int类型的名为heap的优先队列</span></div><div class="line">priority_queue &lt;<span class="keyword">double</span>&gt; k;      <span class="comment">//定义一个double类型的名为k的优先队列</span></div></pre></td></tr></table></figure>
+<h3 id="优先队列"><a href="#优先队列" class="headerlink" title="优先队列"></a>优先队列</h3><blockquote>
+<p>priority_queue &lt;类型&gt; 变量名;</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">priority_queue &lt;<span class="keyword">int</span>&gt; heap;      <span class="comment">//定义一个int类型的名为heap的优先队列</span></div><div class="line">priority_queue &lt;<span class="keyword">double</span>&gt; k;      <span class="comment">//定义一个double类型的名为k的优先队列</span></div></pre></td></tr></table></figure>
 <p>这两种定义方式都是大根堆，转为小根堆有两种方法，一是每个数据都乘以-1，二是自定义数据类型：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> data&#123;</div><div class="line">	<span class="keyword">int</span> x;</div><div class="line">	<span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> data &amp; a)<span class="keyword">const</span> &#123;</div><div class="line">		<span class="keyword">return</span> a.x&lt;x;</div><div class="line">	&#125;</div><div class="line">&#125;;</div><div class="line">priority_queue &lt;data&gt; q;</div></pre></td></tr></table></figure></p>
 <h2 id="队列操作"><a href="#队列操作" class="headerlink" title="队列操作"></a>队列操作</h2><p>此处以一个名为q的队列为例：</p>
 <table>

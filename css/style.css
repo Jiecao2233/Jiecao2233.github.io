@@ -3484,20 +3484,20 @@ a[title="站长统计"] {
 .post-content pre {
   overflow-x: auto;
   position: relative;
-  background: #f5f5f5;
+  background: #272822;
   padding: 10px 15px;
   line-height: 19.2px;
   border-radius: 2px;
-  color: #4d4d4c;
+  color: #ffffff;
 }
 .post-content pre code {
   background: none;
-  color: #4d4d4c;
+  color: #ffffff;
 }
 .post-content .highlight {
   overflow-x: auto;
   position: relative;
-  background: #f5f5f5;
+  background: #272822;
   padding: 10px 15px;
   line-height: 19.2px;
   border-radius: 2px;
@@ -3520,7 +3520,7 @@ a[title="站长统计"] {
 }
 .post-content .highlight figcaption {
   font-size: 0.85em;
-  color: #8e908c;
+  color: #75715e;
   line-height: 1em;
   margin-bottom: 1em;
 }
@@ -3541,7 +3541,7 @@ a[title="站长统计"] {
   height: 19.2px;
 }
 .post-content .gist {
-  background: #f5f5f5;
+  background: #272822;
 }
 .post-content .gist tr,
 .post-content .gist td {
@@ -3570,8 +3570,8 @@ a[title="站长统计"] {
   padding: 0 !important;
 }
 .post-content .gist .gist-meta {
-  background: #f5f5f5;
-  color: #8e908c;
+  background: #272822;
+  color: #75715e;
   font: 0.85em Consolas, Monaco, courier, monospace;
 }
 .post-content .gist .gist-meta a {
@@ -3582,10 +3582,10 @@ a[title="站长统计"] {
   text-decoration: underline;
 }
 pre .comment {
-  color: #8e908c;
+  color: #75715e;
 }
 pre .tag {
-  color: #8e908c;
+  color: #75715e;
 }
 pre .variable,
 pre .title,
@@ -3599,7 +3599,7 @@ pre .html .doctype,
 pre .css .id,
 pre .css .class,
 pre .css .pseudo {
-  color: #c82829;
+  color: #eb272e;
 }
 pre .class,
 pre .number,
@@ -3608,7 +3608,7 @@ pre .built_in,
 pre .literal,
 pre .params,
 pre .constant {
-  color: #f5871f;
+  color: #ae81ff;
 }
 pre .attribute,
 pre .label,
@@ -3622,7 +3622,7 @@ pre .inheritance,
 pre .header,
 pre .ruby .symbol,
 pre .xml .cdata {
-  color: #4271ae;
+  color: #e6db74;
 }
 pre .css .hexcolor,
 pre .css .tag {
@@ -3636,11 +3636,11 @@ pre .ruby .title .keyword,
 pre .perl .sub,
 pre .javascript .title,
 pre .coffeescript .title {
-  color: #4271ae;
+  color: #e6db74;
 }
 pre .keyword,
 pre .javascript .function {
-  color: #8959a8;
+  color: #44cdef;
 }
 .search-wrap {
   position: relative;

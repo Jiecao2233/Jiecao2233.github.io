@@ -13,7 +13,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/10/02/单调队列/index.html">
 <meta property="og:site_name" content="Jiecao">
 <meta property="og:description" content="前言其实单调队列不是真正意义上的队列，它只是一个存在于你脑海里的一个虚拟的队列，虚拟地进行队列的操作。。。（好玄学~~）">
-<meta property="og:updated_time" content="2016-10-02T02:29:31.307Z">
+<meta property="og:updated_time" content="2016-10-02T02:36:52.422Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="单调队列">
 <meta name="twitter:description" content="前言其实单调队列不是真正意义上的队列，它只是一个存在于你脑海里的一个虚拟的队列，虚拟地进行队列的操作。。。（好玄学~~）">
@@ -213,7 +213,7 @@
 <p>下面以一个单调递增队列为例：</p>
 <h3 id="入队操作"><a href="#入队操作" class="headerlink" title="入队操作"></a>入队操作</h3><p>将要放入队尾的元素e与队尾元素t进行比较，如果e&lt;t,则将t踢出队列，继续拿e与队尾元素比较，直到找到一个元素k&lt;e，把e放在k的后面，至于那些被踢掉的元素。。。就不要了。</p>
 <h3 id="出队操作"><a href="#出队操作" class="headerlink" title="出队操作"></a>出队操作</h3><p>因为单调队列是要求区间的最小值，所以前面的元素总会有没用的时候，这个时候就要把那些被顶出区间的元素踢掉。</p>
-<h2 id="2-单调队列裸题"><a href="#2-单调队列裸题" class="headerlink" title="2.单调队列裸题"></a>2.单调队列裸题</h2><p>讲了这么多感觉还是很玄学，那就拿例题来解释吧~~<br><a href="http://www.luogu.org/problem/show?pid=1440" target="_blank" rel="external">洛谷【1440】</a><br>【题目描述】<br>一个含有n项的数列(n&lt;=2000000)，求出每一项前的m个数到它这个区间内的最小值。若前面的数不足m项则从第1个数开始，若前面没有数则输出0。<br>【输入格式】<br>第一行两个数n，m。<br>第二行，n个正整数，为所给定的数列。<br>【输出格式】<br>n行，第i行的一个数ai，为所求序列中第i个数前m个数的最小值。<br>【输入样例】</p>
+<h2 id="2-单调队列裸题"><a href="#2-单调队列裸题" class="headerlink" title="2.单调队列裸题"></a>2.单调队列裸题</h2><p>讲了这么多感觉还是很玄学，那就拿例题来解释吧~~<br>【题目链接】<br><a href="http://www.luogu.org/problem/show?pid=1440" target="_blank" rel="external">洛谷【1440】</a><br>【题目描述】<br>一个含有n项的数列(n&lt;=2000000)，求出每一项前的m个数到它这个区间内的最小值。若前面的数不足m项则从第1个数开始，若前面没有数则输出0。<br>【输入格式】<br>第一行两个数n，m。<br>第二行，n个正整数，为所给定的数列。<br>【输出格式】<br>n行，第i行的一个数ai，为所求序列中第i个数前m个数的最小值。<br>【输入样例】</p>
 <blockquote>
 <p>6 2<br>7 8 1 4 3 2</p>
 </blockquote>

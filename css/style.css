@@ -3108,7 +3108,7 @@ a[title="站长统计"] {
 .post-widget {
   float: right;
   margin-left: 40px;
-  width: 226px;
+  width: 160px;
 }
 .post-toc-wrap.fixed {
   position: fixed;
@@ -3132,7 +3132,7 @@ a[title="站长统计"] {
   text-decoration: underline;
 }
 .post-body {
-  padding: 0 0 20px;
+  padding: 0 0 30px;
 }
 .post-main {
   overflow: hidden;

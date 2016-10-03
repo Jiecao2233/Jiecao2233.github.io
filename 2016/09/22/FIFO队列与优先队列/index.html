@@ -13,7 +13,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/09/22/FIFO队列与优先队列/index.html">
 <meta property="og:site_name" content="Jiecao">
 <meta property="og:description" content="前言队列是个好东西，可以手写，也可以用C++自带的queue头文件来写。">
-<meta property="og:updated_time" content="2016-09-25T03:37:54.850Z">
+<meta property="og:updated_time" content="2016-10-03T03:32:46.520Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FIFO队列与优先队列">
 <meta name="twitter:description" content="前言队列是个好东西，可以手写，也可以用C++自带的queue头文件来写。">
@@ -208,7 +208,7 @@
 
             <div class="post-content" id="post-content" itemprop="postContent"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>队列是个好东西，可以手写，也可以用C++自带的queue头文件来写。</p>
 <a id="more"></a>
-<h2 id="定义队列"><a href="#定义队列" class="headerlink" title="定义队列"></a>定义队列</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></div></pre></td></tr></table></figure>
+<h2 id="定义队列"><a href="#定义队列" class="headerlink" title="定义队列"></a>定义队列</h2><p><code>#include&lt;queue&gt;</code></p>
 <h3 id="FIFO队列"><a href="#FIFO队列" class="headerlink" title="FIFO队列"></a>FIFO队列</h3><blockquote>
 <p>queue &lt;类型&gt; 变量名</p>
 </blockquote>
@@ -217,7 +217,7 @@
 <p>priority_queue &lt;类型&gt; 变量名;</p>
 </blockquote>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">priority_queue &lt;<span class="keyword">int</span>&gt; heap;      <span class="comment">//定义一个int类型的名为heap的优先队列</span></div><div class="line">priority_queue &lt;<span class="keyword">double</span>&gt; k;      <span class="comment">//定义一个double类型的名为k的优先队列</span></div></pre></td></tr></table></figure>
-<p>这两种定义方式都是大根堆，转为小根堆有两种方法，一是每个数据都乘以-1，二是自定义数据类型：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> data&#123;</div><div class="line">	<span class="keyword">int</span> x;</div><div class="line">	<span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> data &amp; a)<span class="keyword">const</span> &#123;</div><div class="line">		<span class="keyword">return</span> a.x&lt;x;</div><div class="line">	&#125;</div><div class="line">&#125;;</div><div class="line">priority_queue &lt;data&gt; q;</div></pre></td></tr></table></figure></p>
+<p>这两种定义方式都是大根堆，转为小根堆有两种方法：<br>一是每个数据都乘以-1；<br>二是自定义数据类型：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> data&#123;</div><div class="line">	<span class="keyword">int</span> x;</div><div class="line">	<span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> data &amp; a)<span class="keyword">const</span> &#123;</div><div class="line">		<span class="keyword">return</span> a.x&lt;x;</div><div class="line">	&#125;</div><div class="line">&#125;;</div><div class="line">priority_queue &lt;data&gt; q;</div></pre></td></tr></table></figure></p>
 <h2 id="队列操作"><a href="#队列操作" class="headerlink" title="队列操作"></a>队列操作</h2><p>此处以一个名为q的队列为例：</p>
 <table>
 <thead>

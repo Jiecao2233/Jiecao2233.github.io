@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Tarjan（强连通分量） | Jiecao | 奥义·哲♂学·比利王</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Tarjan">
+  <meta name="description" content="前言如何判环？用Tarjan啊！多好用啊！（虽然不会写啊）（要不然写这篇博客干啥啊）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tarjan（强连通分量）">
+<meta property="og:url" content="http://yoursite.com/2016/10/13/Tarjan（强连通分量）/index.html">
+<meta property="og:site_name" content="Jiecao">
+<meta property="og:description" content="前言如何判环？用Tarjan啊！多好用啊！（虽然不会写啊）（要不然写这篇博客干啥啊）">
+<meta property="og:updated_time" content="2016-10-13T13:31:26.062Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tarjan（强连通分量）">
+<meta name="twitter:description" content="前言如何判环？用Tarjan啊！多好用啊！（虽然不会写啊）（要不然写这篇博客干啥啊）">
+  
+    <link rel="alternative" href="/atom.xml" title="Jiecao" type="application/atom+xml">
+  
+  <meta name="summary" content="&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;如何判环？用Tarjan啊！多好用啊！（虽然不会写啊）（要不然写这篇博客干啥啊）&lt;/p&gt;">
+  <link rel="shortcut icon" href="/img/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu" class="hide" >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/images/1844_5033146_203658.jpg"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">Jiecao</h5>
+        <a href="mailto:undefined" title="925391454@qq.com" class="mail">925391454@qq.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <ul class="nav flex-col">
+    
+        <li class="waves-block waves-effect">
+          <a href="/"  >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/archives"  >
+            <i class="icon icon-lg icon-archives"></i>
+            归档
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/tags"  >
+            <i class="icon icon-lg icon-tags"></i>
+            标签
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="http://925391454.qzone.qq.com/" target="_blank" >
+            <i class="icon icon-lg icon-qq"></i>
+            QQ
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="http://weibo.com/u/5978707853" target="_blank" >
+            <i class="icon icon-lg icon-weibo"></i>
+            Weibo
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/friends"  >
+            <i class="icon icon-lg icon-users"></i>
+            友情链接
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/myself"  >
+            <i class="icon icon-lg icon-comments"></i>
+            简介&amp;&amp;留言板
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/游戏人生"  >
+            <i class="icon icon-lg icon-steam"></i>
+            游戏
+          </a>
+        </li>
+    
+  </ul>
+
+  <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>Jiecao &copy; 2016</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Tarjan（强连通分量）</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">Tarjan（强连通分量）</h1>
+    <h5 class="subtitle">2016-10-13</h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      
+  <article id="post-Tarjan（强连通分量）" class="article article-type-post" itemprop="blogPost">
+    
+      <div class="post-meat flex-row">
+        <div class="flex-col">
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tarjan/">Tarjan</a></li></ul>
+</div>
+      </div>
+      <div class="post-body">
+
+        <aside class="post-widget" id="post-widget">
+
+          
+          <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+          
+
+          
+          <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-思想"><span class="post-toc-text">1.思想</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-Tarjan例题之信息传递（noip2015）"><span class="post-toc-text">2.Tarjan例题之信息传递（noip2015）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-Tarjan例题之上白泽慧音"><span class="post-toc-text">3.Tarjan例题之上白泽慧音</span></a></li></ol>
+          </nav>
+          
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>如何判环？用Tarjan啊！多好用啊！（虽然不会写啊）（要不然写这篇博客干啥啊）</p>
+<a id="more"></a>
+<h2 id="1-思想"><a href="#1-思想" class="headerlink" title="1.思想"></a>1.思想</h2><blockquote>
+<p>康明宋。。。</p>
+</blockquote>
+<h2 id="2-Tarjan例题之信息传递（noip2015）"><a href="#2-Tarjan例题之信息传递（noip2015）" class="headerlink" title="2.Tarjan例题之信息传递（noip2015）"></a>2.Tarjan例题之信息传递（noip2015）</h2><p>【题目链接】<br><a href="https://www.luogu.org/problem/show?pid=2661" target="_blank" rel="external">洛谷【2661】</a><br>【题目描述】<br>有n个同学（编号为1到n）正在玩一个信息传递的游戏。在游戏里每人都有一个固定的信息传递对象，其中，编号为i的同学的信息传递对象是编号为Ti同学。<br>游戏开始时，每人都只知道自己的生日。之后每一轮中，所有人会同时将自己当前所知的生日信息告诉各自的信息传递对象（注意：可能有人可以从若干人那里获取信息，但是每人只会把信息告诉一个人，即自己的信息传递对象）。当有人从别人口中得知自己的生日时，游戏结束。请问该游戏一共可以进行几轮？<br>【输入格式】<br>输入共2行。<br>第1行包含1个正整数n表示n个人。<br>第2行包含n个用空格隔开的正整数T1,T2,……,Tn其中第i个整数Ti示编号为i<br>的同学的信息传递对象是编号为Ti的同学，Ti≤n且Ti≠i<br>数据保证游戏一定会结束。<br>【输出格式】<br>输出共 1 行，包含 1 个整数，表示游戏一共可以进行多少轮。<br>【输入样例】</p>
+<blockquote>
+<p>5<br>2 4 2 3 1</p>
+</blockquote>
+<p>【输出样例】</p>
+<blockquote>
+<p>3</p>
+</blockquote>
+<p>【题解】<br>裸Tarjan。。。<br>能传递回去就证明有环，能进行的次数就是最小环里的元素个数。<br>【程序】<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> M 500500</span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> n,tmp;</div><div class="line"></div><div class="line"><span class="keyword">struct</span> E&#123;</div><div class="line">	<span class="keyword">int</span> to,next,w;</div><div class="line">&#125;e[M];</div><div class="line"><span class="keyword">int</span> tope,head[M];</div><div class="line"></div><div class="line"><span class="keyword">int</span> dfn[M],low[M],isinstk[M],stk[M],stktop,dfstop,sov[M],totsov;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">ae</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,<span class="keyword">int</span> z)</span></span></div><div class="line">&#123;</div><div class="line">	tope++;e[tope].to=y;e[tope].next=head[x];head[x]=tope;e[tope].w=z;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">tarjan</span><span class="params">(<span class="keyword">int</span> x)</span></span></div><div class="line">&#123;</div><div class="line">    dfn[x]=low[x]=++dfstop;</div><div class="line">    isinstk[x]=<span class="number">1</span>;</div><div class="line">    stk[++stktop]=x;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=head[x],y=e[i].to;i;i=e[i].next,y=e[i].to)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>(dfn[y]==<span class="number">0</span>)</div><div class="line">        &#123;</div><div class="line">            tarjan(y);</div><div class="line">            low[x]=min(low[x],low[y]);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(isinstk[y])</div><div class="line">            low[x]=min(low[x],dfn[y]);</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(dfn[x]==low[x])</div><div class="line">    &#123;</div><div class="line">        totsov++; </div><div class="line">        <span class="keyword">int</span> i;</div><div class="line">        <span class="keyword">do</span></div><div class="line">        &#123;</div><div class="line">            i=stk[stktop--];</div><div class="line">            sov[totsov]++;</div><div class="line">            isinstk[i]=<span class="number">0</span>;</div><div class="line">            <span class="keyword">if</span>(i==x)<span class="keyword">break</span>;</div><div class="line">        &#125;<span class="keyword">while</span>(i);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;++i)</div><div class="line">	&#123;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;tmp);</div><div class="line">		ae(i,tmp,<span class="number">1</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;++i)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">if</span>(!dfn[i])</div><div class="line">			tarjan(i);</div><div class="line">	&#125;</div><div class="line">	sort(sov+<span class="number">1</span>,sov+totsov+<span class="number">1</span>);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=totsov;++i)</div><div class="line">    &#123;</div><div class="line">    	<span class="keyword">if</span>(sov[i]&gt;<span class="number">1</span>)</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%d"</span>,sov[i]);</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="3-Tarjan例题之上白泽慧音"><a href="#3-Tarjan例题之上白泽慧音" class="headerlink" title="3.Tarjan例题之上白泽慧音"></a>3.Tarjan例题之上白泽慧音</h2><p>【题目链接】<br><a href="https://www.luogu.org/problem/show?pid=1726" target="_blank" rel="external">洛谷【1726】</a><br>【题目描述】<br>在幻想乡，上白泽慧音是以知识渊博闻名的老师。春雪异变导致人间之里的很多道路都被大雪堵塞，使有的学生不能顺利地到达慧音所在的村庄。因此慧音决定换一个能够聚集最多人数的村庄作为新的教学地点。人间之里由N个村庄（编号为1..N）和M条道路组成，道路分为两种一种为单向通行的，一种为双向通行的，分别用1和2来标记。如果存在由村庄A到达村庄B的通路，那么我们认为可以从村庄A到达村庄B，记为(A,B)。当(A,B)和(B,A)同时满足时，我们认为A,B是绝对连通的，记为<a,b>。绝对连通区域是指一个村庄的集合，在这个集合中任意两个村庄X,Y都满足<x,y>。现在你的任务是，找出最大的绝对连通区域，并将这个绝对连通区域的村庄按编号依次输出。若存在两个最大的，输出字典序最小的，比如当存在1,3,4和2,5,6这两个最大连通区域时，输出的是1,3,4。<br>【输入格式】<br>第1行：两个正整数N,M<br>第2到M+1行：每行三个正整数a,b,t, t = 1表示存在从村庄a到b的单向道路，t = 2表示村庄a,b之间存在双向通行的道路。保证每条道路只出现一次。<br>【输出格式】<br>第1行： 1个整数，表示最大的绝对连通区域包含的村庄个数。<br>第2行：若干个整数，依次输出最大的绝对连通区域所包含的村庄编号。<br>【输入样例】</x,y></a,b></p>
+<blockquote>
+<p>5 5<br>1 2 1<br>1 3 2<br>2 4 2<br>5 1 2<br>3 5 1</p>
+</blockquote>
+<p>【输出样例】</p>
+<blockquote>
+<p>3<br>1 3 5</p>
+</blockquote>
+<p>【题解】</p>
+</div>
+
+            
+<nav class="post-nav flex-row">
+  <div class="flex-col waves-block waves-effect prev">
+    
+      <a href="/2050/01/01/【置顶】文章目录/" title="【置顶】文章目录" id="post-prev" class="post-nav-link">
+        <i class="icon icon-chevron-left"></i>
+        <span class="article-nav-title">上一篇</span>
+      </a>
+    
+  </div>
+  <div class="flex-col waves-block waves-effect next">
+    
+      <a href="/2016/10/11/对拍/" title="对拍" id="post-next" class="post-nav-link">
+        <span class="article-nav-title">下一篇</span>
+        <i class="icon icon-chevron-right"></i>
+      </a>
+    
+  </div>
+
+</nav>
+
+
+
+            
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Tarjan（强连通分量）" data-title="Tarjan（强连通分量）" data-url="http://yoursite.com/2016/10/13/Tarjan（强连通分量）/index.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"jiecao2233"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+
+        </div>
+
+      </div>
+
+    
+
+  </article>
+
+
+
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+<script>
+var BLOG_SHARE = {
+    title: "Tarjan（强连通分量）",
+    pic: "/images/1844_5033146_203658.jpg",
+    summary: document.getElementsByName('summary')[0].content,
+    url: "http://yoursite.com/2016/10/13/Tarjan（强连通分量）/index.html"
+};
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+<! -- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

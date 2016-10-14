@@ -13,7 +13,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/10/03/对组（pair）/index.html">
 <meta property="og:site_name" content="Jiecao">
 <meta property="og:description" content="前言不想写结构体了？这里有个好东西，可以一句话代替两个元素的结构体，还不来试试？">
-<meta property="og:updated_time" content="2016-10-03T08:57:56.114Z">
+<meta property="og:updated_time" content="2016-10-14T13:17:31.981Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="对组（pair）">
 <meta name="twitter:description" content="前言不想写结构体了？这里有个好东西，可以一句话代替两个元素的结构体，还不来试试？">
@@ -209,6 +209,10 @@
             <div class="post-content" id="post-content" itemprop="postContent"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>不想写结构体了？这里有个好东西，可以一句话代替两个元素的结构体，还不来试试？</p>
 <a id="more"></a>
 <h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h2><p>头文件<code>#include&lt;utility&gt;</code></p>
+<p>STL的头文件中描述了一个非常简单的模板类pair，用来表示一个二元组或元素对，并提供了大小比较的比较运算符模板函数。</p>
+<p>pair模板类需要两个参数：首元素的数据类型和尾元素的数据类型。pair模板类对象有两个成员：first和second，分别表示首元素和尾元素。</p>
+<p>在头文件中已经定义了pair上的六个比较运算符：&lt;、&gt;、&lt;=、&gt;=、==、!=，其规则是先比较first，first相等时再比较second，这符合大多数应用的逻辑。当然，也可以通过重载这几个运算符来重新指定自己的比较逻辑。</p>
+<p>pair的内建函数make_pair(a,b)直接返回一个pair类，嵌套在其他数据结构（堆，队列，向量，map…）时使用比较方便。</p>
 </div>
 
             

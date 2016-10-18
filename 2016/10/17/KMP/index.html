@@ -25,7 +25,7 @@
 <meta property="og:image" content="http://yoursite.com/images/1476712252356.png">
 <meta property="og:image" content="http://yoursite.com/images/1476712261511.png">
 <meta property="og:image" content="http://yoursite.com/images/1476712272237.png">
-<meta property="og:updated_time" content="2016-10-18T13:29:25.211Z">
+<meta property="og:updated_time" content="2016-10-18T13:33:40.354Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="KMP">
 <meta name="twitter:description" content="前言挺好用的一种字符串匹配算法。。。就是比较难懂。。。KMP=Knuth-Morris-Pratt">
@@ -225,13 +225,13 @@
 <p>下面讲解一下KMP的大致思想：<br>(假设被搜的字符串为a，去匹配的字符串叫b.以图片中的两行字符串为例，第一行为a，第二行为b.)</p>
 <p>首先比较两个字符串的头：<br><img src="/images/1476712109019.png" alt="image"><br>发现并不匹配，于是往后跳一个字符，继续拿b的头与当前搜到的a的位置的字符比较：<br><img src="/images/1476712172248.png" alt="image"><br>一直到下图这种情况，发现能够匹配，那么就两个字符串同时往后扫：<br><img src="/images/1476712184180.png" alt="image"><br>当我们扫到b的D时，发现a的这个位置并不能匹配：<br><img src="/images/1476712193472.png" alt="image"><br>如果没有KMP，下一步就要让a再往后挪一个字符继续搜了：<br><img src="/images/1476712202675.png" alt="image"></p>
 <hr>
-<p>但是！<br>我们有KMP啊，下面就是见证奇迹的时刻：<br><img src="/images/1476712223656.png" alt="image"><br>是不是很奇怪为什么要这样跳？<br>这里我们引入一个叫做“部分匹配值*”的东东：<br><img src="/images/1476712214144.png" alt="image"><br>通常我们用一个next数组来储存它，往后跳的时候就把当前a上的指针加上当前已匹配的位数再减去失配时最后一个匹配的字符的部分匹配值</p>
+<p>但是！<br>我们有KMP啊，下面就是见证奇迹的时刻：<br><img src="/images/1476712223656.png" alt="image"><br>是不是很奇怪为什么要这样跳？<br>这里我们引入一个叫做“$部分匹配值^{[1]}$”的东东：<br><img src="/images/1476712214144.png" alt="image"><br>通常我们用一个next数组来储存它，往后跳的时候就把当前a上的指针加上当前已匹配的位数再减去失配时最后一个匹配的字符的部分匹配值</p>
 <blockquote>
 <p>跳的位数 = 当前已匹配的位数 - 失配时最后一个匹配的字符的部分匹配值</p>
 </blockquote>
 <p>6-2=4，所以就往后跳了4位：<br><img src="/images/1476712223656.png" alt="image"><br>然后就继续按照这个规则跳啊跳啊：<br><img src="/images/1476712232964.png" alt="image"><br>不匹配，继续跳<br><img src="/images/1476712252356.png" alt="image"><br>成功近在眼前<br><img src="/images/1476712261511.png" alt="image"><br>然后就完成了</p>
 <hr>
-<p>*“部分匹配值”表的制作过程：<br>（来自naivekun的博客，实在不想自己写了。。。）<br>1.首先，要了解两个概念：”前缀”和”后缀”。 “前缀”指除了最后一个字符以外，一个字符串的全部头部组合；”后缀”指除了第一个字符以外，一个字符串的全部尾部组合。<br><img src="/images/1476712272237.png" alt="image"><br>2.“部分匹配值”就是”前缀”和”后缀”的最长的共有元素的长度。以”ABCDABD”为例:</p>
+<p>[1]：“部分匹配值”表的制作过程：<br>（来自naivekun的博客，实在不想自己写了。。。）<br>1.首先，要了解两个概念：”前缀”和”后缀”。 “前缀”指除了最后一个字符以外，一个字符串的全部头部组合；”后缀”指除了第一个字符以外，一个字符串的全部尾部组合。<br><img src="/images/1476712272237.png" alt="image"><br>2.“部分匹配值”就是”前缀”和”后缀”的最长的共有元素的长度。以”ABCDABD”为例:</p>
 <blockquote>
 <p>－　“A”的前缀和后缀都为空集，共有元素的长度为0；<br>－　“AB”的前缀为[A]，后缀为[B]，共有元素的长度为0；<br>－　“ABC”的前缀为[A, AB]，后缀为[BC, C]，共有元素的长度0；<br>－　“ABCD”的前缀为[A, AB, ABC]，后缀为[BCD, CD, D]，共有元素的长度为0；<br>－　“ABCDA”的前缀为[A, AB, ABC, ABCD]，后缀为[BCDA, CDA, DA, A]，共有元素为”A”，长度为1；<br>－　“ABCDAB”的前缀为[A, AB, ABC, ABCD, ABCDA]，后缀为[BCDAB, CDAB, DAB, AB, B]，共有元素为”AB”，长度为2；<br>－　“ABCDABD”的前缀为[A, AB, ABC, ABCD, ABCDA, ABCDAB]，后缀为[BCDABD, CDABD, DABD, ABD, BD, D]，共有元素的长度为0。</p>
 </blockquote>

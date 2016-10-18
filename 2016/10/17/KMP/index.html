@@ -25,7 +25,7 @@
 <meta property="og:image" content="http://yoursite.com/images/1476712252356.png">
 <meta property="og:image" content="http://yoursite.com/images/1476712261511.png">
 <meta property="og:image" content="http://yoursite.com/images/1476712272237.png">
-<meta property="og:updated_time" content="2016-10-18T11:43:18.352Z">
+<meta property="og:updated_time" content="2016-10-18T13:29:25.211Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="KMP">
 <meta name="twitter:description" content="前言挺好用的一种字符串匹配算法。。。就是比较难懂。。。KMP=Knuth-Morris-Pratt">
@@ -212,7 +212,7 @@
 
           
           <nav class="post-toc-wrap" id="post-toc">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-思想"><span class="post-toc-text">1.思想</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-思想"><span class="post-toc-text">1.思想</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-KMP模板题"><span class="post-toc-text">2.KMP模板题</span></a></li></ol>
           </nav>
           
         </aside>
@@ -236,6 +236,15 @@
 <p>－　“A”的前缀和后缀都为空集，共有元素的长度为0；<br>－　“AB”的前缀为[A]，后缀为[B]，共有元素的长度为0；<br>－　“ABC”的前缀为[A, AB]，后缀为[BC, C]，共有元素的长度0；<br>－　“ABCD”的前缀为[A, AB, ABC]，后缀为[BCD, CD, D]，共有元素的长度为0；<br>－　“ABCDA”的前缀为[A, AB, ABC, ABCD]，后缀为[BCDA, CDA, DA, A]，共有元素为”A”，长度为1；<br>－　“ABCDAB”的前缀为[A, AB, ABC, ABCD, ABCDA]，后缀为[BCDAB, CDAB, DAB, AB, B]，共有元素为”AB”，长度为2；<br>－　“ABCDABD”的前缀为[A, AB, ABC, ABCD, ABCDA, ABCDAB]，后缀为[BCDABD, CDABD, DABD, ABD, BD, D]，共有元素的长度为0。</p>
 </blockquote>
 <p>3.“部分匹配”的实质是：有时候，字符串头部和尾部会有重复。比如，”ABCDAB”之中有两个”AB”，那么它的”部分匹配值”就是2（”AB”的长度）。搜索词移动的时候，第一个”AB”向后移动4位（字符串长度-部分匹配值），就可以来到第二个”AB”的位置。</p>
+<h2 id="2-KMP模板题"><a href="#2-KMP模板题" class="headerlink" title="2.KMP模板题"></a>2.KMP模板题</h2><p>【题目链接】<br><a href="https://www.luogu.org/problem/show?pid=3375" target="_blank" rel="external">洛谷【3375】</a><br>【题目描述】<br>如题，给出两个字符串s1和s2，其中s2为s1的子串，求出s2在s1中所有出现的位置。<br>为了减少骗分的情况，接下来还要输出子串的前缀数组next。如果你不知道这是什么意思也不要问，去百度搜[kmp算法]学习一下就知道了。<br>【输入格式】<br>第一行为一个字符串，即为s1（仅包含大写字母）<br>第二行为一个字符串，即为s2（仅包含大写字母）<br>【输出格式】<br>若干行，每行包含一个整数，表示s2在s1中出现的位置<br>接下来1行，包括length(s2)个整数，表示前缀数组next[i]的值。<br>【输入样例】</p>
+<blockquote>
+<p>ABABABC<br>ABA</p>
+</blockquote>
+<p>【输出样例】</p>
+<blockquote>
+<p>1<br>3<br>0 0 1 </p>
+</blockquote>
+<p>【程序】<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
 </div>
 
             

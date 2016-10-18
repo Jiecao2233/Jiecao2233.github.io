@@ -25,7 +25,7 @@
 <meta property="og:image" content="http://yoursite.com/images/1476712252356.png">
 <meta property="og:image" content="http://yoursite.com/images/1476712261511.png">
 <meta property="og:image" content="http://yoursite.com/images/1476712272237.png">
-<meta property="og:updated_time" content="2016-10-18T13:33:40.354Z">
+<meta property="og:updated_time" content="2016-10-18T13:43:04.229Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="KMP">
 <meta name="twitter:description" content="前言挺好用的一种字符串匹配算法。。。就是比较难懂。。。KMP=Knuth-Morris-Pratt">
@@ -225,7 +225,7 @@
 <p>下面讲解一下KMP的大致思想：<br>(假设被搜的字符串为a，去匹配的字符串叫b.以图片中的两行字符串为例，第一行为a，第二行为b.)</p>
 <p>首先比较两个字符串的头：<br><img src="/images/1476712109019.png" alt="image"><br>发现并不匹配，于是往后跳一个字符，继续拿b的头与当前搜到的a的位置的字符比较：<br><img src="/images/1476712172248.png" alt="image"><br>一直到下图这种情况，发现能够匹配，那么就两个字符串同时往后扫：<br><img src="/images/1476712184180.png" alt="image"><br>当我们扫到b的D时，发现a的这个位置并不能匹配：<br><img src="/images/1476712193472.png" alt="image"><br>如果没有KMP，下一步就要让a再往后挪一个字符继续搜了：<br><img src="/images/1476712202675.png" alt="image"></p>
 <hr>
-<p>但是！<br>我们有KMP啊，下面就是见证奇迹的时刻：<br><img src="/images/1476712223656.png" alt="image"><br>是不是很奇怪为什么要这样跳？<br>这里我们引入一个叫做“$部分匹配值^{[1]}$”的东东：<br><img src="/images/1476712214144.png" alt="image"><br>通常我们用一个next数组来储存它，往后跳的时候就把当前a上的指针加上当前已匹配的位数再减去失配时最后一个匹配的字符的部分匹配值</p>
+<p>但是！<br>我们有KMP啊，下面就是见证奇迹的时刻：<br><img src="/images/1476712223656.png" alt="image"><br>是不是很奇怪为什么要这样跳？<br>这里我们引入一个叫做“部分匹配值$^{[1]}$”的东东：<br><img src="/images/1476712214144.png" alt="image"><br>通常我们用一个next数组来储存它，往后跳的时候就把当前a上的指针加上当前已匹配的位数再减去失配时最后一个匹配的字符的部分匹配值</p>
 <blockquote>
 <p>跳的位数 = 当前已匹配的位数 - 失配时最后一个匹配的字符的部分匹配值</p>
 </blockquote>

@@ -3,24 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Dijkstra | Jiecao | 奥义·哲♂学·比利王</title>
+  <title>树形DP | Jiecao | 奥义·哲♂学·比利王</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="贪心,Dijkstra,最短路">
-  <meta name="description" content="前言">
+  <meta name="keywords" content="动态规划,DFS">
+  <meta name="description" content="前言在树上搞DP？好高大上的DP。。。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Dijkstra">
-<meta property="og:url" content="http://yoursite.com/2016/10/16/Dijkstra/index.html">
+<meta property="og:title" content="树形DP">
+<meta property="og:url" content="http://yoursite.com/2016/10/26/树形DP/index.html">
 <meta property="og:site_name" content="Jiecao">
-<meta property="og:description" content="前言">
-<meta property="og:updated_time" content="2016-10-23T13:54:48.495Z">
+<meta property="og:description" content="前言在树上搞DP？好高大上的DP。。。">
+<meta property="og:updated_time" content="2016-10-26T13:28:50.121Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Dijkstra">
-<meta name="twitter:description" content="前言">
+<meta name="twitter:title" content="树形DP">
+<meta name="twitter:description" content="前言在树上搞DP？好高大上的DP。。。">
   
     <link rel="alternative" href="/atom.xml" title="Jiecao" type="application/atom+xml">
   
-  <meta name="summary" content="null">
+  <meta name="summary" content="&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;在树上搞DP？好高大上的DP。。。&lt;/p&gt;">
   <link rel="shortcut icon" href="/img/favicon.ico">
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -119,7 +119,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">Dijkstra</div>
+        <div class="flex-col header-title ellipsis">树形DP</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -140,18 +140,18 @@
 </header>
 <header class="content-header">
   <div class="container">
-    <h1 class="author">Dijkstra</h1>
-    <h5 class="subtitle">2016-10-16</h5>
+    <h1 class="author">树形DP</h1>
+    <h5 class="subtitle">2016-10-26</h5>
   </div>
 </header>
 
     <div class="container body-wrap">
       
-  <article id="post-Dijkstra" class="article article-type-post" itemprop="blogPost">
+  <article id="post-树形DP" class="article article-type-post" itemprop="blogPost">
     
       <div class="post-meat flex-row">
         <div class="flex-col">
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dijkstra/">Dijkstra</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最短路/">最短路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/贪心/">贪心</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DFS/">DFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动态规划/">动态规划</a></li></ul>
 </div>
       </div>
       <div class="post-body">
@@ -199,20 +199,32 @@
 
           
           <nav class="post-toc-wrap" id="post-toc">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-思想"><span class="post-toc-text">1.思想</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-树形DP例题之选课"><span class="post-toc-text">2.树形DP例题之选课</span></a></li></ol>
           </nav>
           
         </aside>
 
         <div class="post-main">
 
-            <div class="post-content" id="post-content" itemprop="postContent"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2></div>
+            <div class="post-content" id="post-content" itemprop="postContent"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在树上搞DP？好高大上的DP。。。</p>
+<a id="more"></a>
+<h2 id="1-思想"><a href="#1-思想" class="headerlink" title="1.思想"></a>1.思想</h2><p>外瑞库，康明松。</p>
+<h2 id="2-树形DP例题之选课"><a href="#2-树形DP例题之选课" class="headerlink" title="2.树形DP例题之选课"></a>2.树形DP例题之选课</h2><p>【题目链接】<br><a href="https://www.luogu.org/problem/show?pid=2014" target="_blank" rel="external">洛谷【2014】</a><br>【题目描述】<br>在大学里每个学生，为了达到一定的学分，必须从很多课程里选择一些课程来学习，在课程里有些课程必须在某些课程之前学习，如高等数学总是在其它课程之前学习。现在有N门功课，每门课有个学分，每门课有一门或没有直接先修课（若课程a是课程b的先修课即只有学完了课程a，才能学习课程b）。一个学生要从这些课程里选择M门课程学习，问他能获得的最大学分是多少？<br>【输入格式】<br>第一行有两个整数N,M用空格隔开。(1&lt;=N&lt;=300,1&lt;=M&lt;=150)<br>接下来的N行,第I+1行包含两个整数ki和si, ki表示第I门课的直接先修课，si表示第I门课的学分。若ki=0表示没有直接先修课（1&lt;=ki&lt;=N, 1&lt;=si&lt;=20）。<br>【输出格式】<br>只有一行，选M门课程的最大得分。<br>【输入样例】</p>
+<blockquote>
+<p>7  4<br>2  2<br>0  1<br>0  4<br>2  1<br>7  1<br>7  6<br>2  2</p>
+</blockquote>
+<p>【输出格式】</p>
+<blockquote>
+<p>13</p>
+</blockquote>
+<p>【程序】<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> M 500500</span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> n,m;</div><div class="line"><span class="keyword">int</span> head[M],next[M],w[M];</div><div class="line"><span class="keyword">int</span> f[M/<span class="number">100</span>][M/<span class="number">100</span>];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span>(head[x]==<span class="number">0</span>) </div><div class="line">		<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">	<span class="keyword">int</span> ans=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=head[x];i;i=next[i])</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">int</span> t=dfs(i);</div><div class="line">        ans+=t+<span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j=ans;j&gt;=<span class="number">0</span>;j--)</div><div class="line">		&#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;=t;k++)</div><div class="line">            &#123;</div><div class="line">            	<span class="keyword">if</span> (j-k<span class="number">-1</span>&gt;=<span class="number">0</span>) </div><div class="line">					f[x][j]=max(f[x][j],f[x][j-k<span class="number">-1</span>]+f[i][k]);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> ans;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</div><div class="line">	<span class="keyword">int</span> ta,tb;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;++i)</div><div class="line">	&#123;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;ta,&amp;tb);</div><div class="line">		next[i]=head[ta];</div><div class="line">		head[ta]=i;</div><div class="line">		w[i]=tb;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=n;++i) f[i][<span class="number">0</span>]=w[i];</div><div class="line">	dfs(<span class="number">0</span>);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>,f[<span class="number">0</span>][m]);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</div>
 
             
 <nav class="post-nav flex-row">
   <div class="flex-col waves-block waves-effect prev">
     
-      <a href="/2016/10/16/SPFA/" title="SPFA" id="post-prev" class="post-nav-link">
+      <a href="/2050/01/01/【置顶】文章目录/" title="【置顶】文章目录" id="post-prev" class="post-nav-link">
         <i class="icon icon-chevron-left"></i>
         <span class="article-nav-title">上一篇</span>
       </a>
@@ -220,7 +232,7 @@
   </div>
   <div class="flex-col waves-block waves-effect next">
     
-      <a href="/2016/10/13/Tarjan/" title="Tarjan（强连通分量）" id="post-next" class="post-nav-link">
+      <a href="/2016/10/20/最小生成树/" title="最小生成树（MST）" id="post-next" class="post-nav-link">
         <span class="article-nav-title">下一篇</span>
         <i class="icon icon-chevron-right"></i>
       </a>
@@ -234,7 +246,7 @@
             
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Dijkstra" data-title="Dijkstra" data-url="http://yoursite.com/2016/10/16/Dijkstra/index.html"></div>
+	<div class="ds-thread" data-thread-key="树形DP" data-title="树形DP" data-url="http://yoursite.com/2016/10/26/树形DP/index.html"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -273,10 +285,10 @@
 
 <script>
 var BLOG_SHARE = {
-    title: "Dijkstra",
+    title: "树形DP",
     pic: "/images/1844_5033146_203658.jpg",
     summary: document.getElementsByName('summary')[0].content,
-    url: "http://yoursite.com/2016/10/16/Dijkstra/index.html"
+    url: "http://yoursite.com/2016/10/26/树形DP/index.html"
 };
 </script>
 <div class="global-share" id="global-share">

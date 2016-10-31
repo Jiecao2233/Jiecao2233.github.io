@@ -13,10 +13,12 @@
 <meta property="og:url" content="http://yoursite.com/2016/10/31/矩阵乘法-（矩阵）快速幂-斐波那契/index.html">
 <meta property="og:site_name" content="Jiecao">
 <meta property="og:description" content="前言如何快速求出“兔子数列”的第n(好大一个数)位的值嘞？">
-<meta property="og:updated_time" content="2016-10-31T11:43:39.889Z">
+<meta property="og:image" content="http://yoursite.com/images/1477916088868.png">
+<meta property="og:updated_time" content="2016-10-31T12:36:28.379Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="矩阵乘法+（矩阵）快速幂+斐波那契">
 <meta name="twitter:description" content="前言如何快速求出“兔子数列”的第n(好大一个数)位的值嘞？">
+<meta name="twitter:image" content="http://yoursite.com/images/1477916088868.png">
   
     <link rel="alternative" href="/atom.xml" title="Jiecao" type="application/atom+xml">
   
@@ -212,7 +214,8 @@
 <p>2.用STL库（不开O2优化会很慢）<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line">......</div><div class="line"><span class="built_in">pow</span>(n,m)</div></pre></td></tr></table></figure></p>
 <p>3.快速幂（利用倍增思想）<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">power</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> P)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> re=<span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span>(;b;b&gt;&gt;=<span class="number">1</span>,a=a*a%P)</div><div class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>) re=re*a%P;</div><div class="line">    <span class="keyword">return</span> re;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>P.S. If you want to know what is 倍增, <a href="https://naivekun.github.io/2016/09/07/%E5%80%8D%E5%A2%9E/" target="_blank" rel="external"><strong>Click Here</strong></a>（来自naivekun的博客）</p>
-<h2 id="2-了解一下矩阵"><a href="#2-了解一下矩阵" class="headerlink" title="2.了解一下矩阵"></a>2.了解一下矩阵</h2></div>
+<h2 id="2-了解一下矩阵"><a href="#2-了解一下矩阵" class="headerlink" title="2.了解一下矩阵"></a>2.了解一下矩阵</h2><p><img src="/images/1477916088868.png" alt="斐波那契矩阵求法"><br>左边一个2*2的矩阵（以下称 矩阵1 ），下面一个2*1的矩阵（以下称 矩阵2 ），中间一个2*1的矩阵（以下称 矩阵3 ）。<br>每当我们需要得到一个新的 矩阵3 时，将已有的 矩阵2 乘上构造矩阵 矩阵1 。<br>矩阵3 的第n行第m列的数由 矩阵2 的第m列的数乘 矩阵1 的第m列的数</p>
+</div>
 
             
 <nav class="post-nav flex-row">
